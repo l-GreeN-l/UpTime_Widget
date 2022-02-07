@@ -6,11 +6,6 @@
 //       
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-
-
-
-
 package uptime;
 
 import java.io.BufferedReader;
@@ -27,17 +22,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 import java.util.TimeZone;
-
-
 import static uptime.File.*;
 import static uptime.XLS.ControllerSave;
 import static uptime.UpTime.*;
 
+
 public class MTime {
-    
-    
-    
-    
+   
 //******************************************************************************   
     
    // Переменные для работы со временем 
@@ -50,42 +41,26 @@ public class MTime {
     public static long bufTime;
 //******************************************************************************   
     
-   
-    
-    
-    
-    
-     
     
     // Ини программы и установка часового пояса
     public static void InitTime()
     {
        Reed();
-       
        Form.setTimeZone(TimeZone.getTimeZone("UTC"));
-       
     }
-//------------------------------------------------------------------------------
+
     
-    
-    
-    
-    
+
   // Обновление аптайма . Должен работать постоянно
     public  static void   UpdateTime()
     {
-        
+
         UpT = bufTime + ManagementFactory.getRuntimeMXBean().getUptime();
         date = new Date(UpT);
         
-        Time = Form.format(date);
-        
+        Time = Form.format(date);  
         }
-//------------------------------------------------------------------------------
 
-
-    
-    
     // Получить текущий аптайм с учетом перерывов
     public static String  GetUptime()
     {
@@ -95,29 +70,17 @@ public class MTime {
         Time = Form.format(date);
         return Time;
     }
-//------------------------------------------------------------------------------
-
-
-    
-    
-    
+ 
     // Получить текущую дату
     public static String GetDate()
     {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 	LocalDate localDate = LocalDate.now();
         String str = dtf.format(localDate);
-	
-    
-    
     return str; 
     }
-//------------------------------------------------------------------------------
-    
-    
-    
-    
-    
+
+
 //==============================================================================    
     
 }
